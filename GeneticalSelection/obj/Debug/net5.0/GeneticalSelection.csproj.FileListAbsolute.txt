@@ -58,13 +58,6 @@ E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\scopedcss
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\GeneticalSelection.TagHelpers.input.cache
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\GeneticalSelection.TagHelpers.output.cache
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\GeneticalSelection.RazorCoreGenerate.cache
-E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
-E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
-E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
-E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
-E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
-E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Pages\_ViewImports.cshtml.g.cs
-E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Pages\_ViewStart.cshtml.g.cs
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\GeneticalSelection.RazorTargetAssemblyInfo.cache
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\GeneticalSelection.RazorTargetAssemblyInfo.cs
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\GeneticalSelection.Views.pdb
@@ -73,3 +66,10 @@ E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Genetical
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\ref\GeneticalSelection.dll
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\GeneticalSelection.pdb
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\GeneticalSelection.genruntimeconfig.cache
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\bin\Debug\net5.0\bower.json
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\bin\Debug\net5.0\AutoMapper.dll
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs

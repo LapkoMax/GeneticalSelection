@@ -11,5 +11,10 @@ namespace GeneticalSelection.Repositories.Impl
     {
         public KingdomRepository(RepositoryContext repositoryContext)
             : base(repositoryContext) { }
+        public IEnumerable<Kingdom> GetAllKingdoms(bool trackChanges = false) =>
+            FindAll(trackChanges)
+            .OrderBy(k => k.Name)
+            .ToList();
+        public void CreateKingdom(Kingdom kingdom) => Create(kingdom);
     }
 }
