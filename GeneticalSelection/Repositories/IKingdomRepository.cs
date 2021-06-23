@@ -9,6 +9,7 @@ namespace GeneticalSelection.Repositories
     public interface IKingdomRepository
     {
         IEnumerable<Kingdom> GetAllKingdoms(bool trackChanges = false);
+        Kingdom GetKingdom(long kingdomId, bool trackChanges = false);
         void CreateKingdom(Kingdom kingdom);
     }
 }

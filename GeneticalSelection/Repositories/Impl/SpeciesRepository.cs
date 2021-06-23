@@ -11,5 +11,17 @@ namespace GeneticalSelection.Repositories.Impl
     {
         public SpeciesRepository(RepositoryContext repositoryContext)
             : base(repositoryContext) { }
+        public IEnumerable<Species> GetAllSpecies(bool trackChanges = false) =>
+            FindAll(trackChanges)
+            .OrderBy(k => k.Name)
+            .ToList();
+        public Species GetSpecies(long speciesId, bool trackChanges = false) =>
+            FindByCondition(k => k.Id.Equals(speciesId), trackChanges)
+            .SingleOrDefault();
+        public void CreateSpecies(long genusId, Species species)
+        {
+            species.GenusId = genusId;
+            Create(species); 
+        }
     }
 }

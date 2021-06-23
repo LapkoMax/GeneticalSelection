@@ -13,7 +13,21 @@ namespace GeneticalSelection.AutoMapper
         public MappingProfile()
         {
             CreateMap<Kingdom, KingdomDto>();
+            CreateMap<Phylum, PhylumDto>();
+            CreateMap<Subphylum, SubphylumDto>();
+            CreateMap<Class, ClassDto>();
+            CreateMap<Order, OrderDto>();
+            CreateMap<Family, FamilyDto>();
+            CreateMap<Genus, GenusDto>();
+            CreateMap<Species, SpeciesDto>();
             CreateMap<KingdomForCreationDto, Kingdom>();
+            CreateMap<PhylumForCreationDto, Phylum>();
+            CreateMap<SubphylumForCreationDto, Subphylum>();
+            CreateMap<ClassForCreationDto, Class>();
+            CreateMap<OrderForCreationDto, Order>();
+            CreateMap<FamilyForCreationDto, Family>();
+            CreateMap<GenusForCreationDto, Genus>();
+            CreateMap<SpeciesForCreationDto, Species>();
         }
     }
 }
