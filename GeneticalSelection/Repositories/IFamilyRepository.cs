@@ -11,5 +11,6 @@ namespace GeneticalSelection.Repositories
         IEnumerable<Family> GetAllFamilies(bool trackChanges = false);
         Family GetFamily(long familyId, bool trackChanges = false);
         void CreateFamily(long orderId, Family family);
+        void DeleteFamily(Family family);
     }
 }

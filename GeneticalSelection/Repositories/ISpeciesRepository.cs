@@ -11,5 +11,6 @@ namespace GeneticalSelection.Repositories
         IEnumerable<Species> GetAllSpecies(bool trackChanges = false);
         Species GetSpecies(long speciesId, bool trackChanges = false);
         void CreateSpecies(long genusId, Species species);
+        void DeleteSpecies(Species species);
     }
 }

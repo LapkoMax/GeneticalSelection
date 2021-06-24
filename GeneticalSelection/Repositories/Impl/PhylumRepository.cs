@@ -39,5 +39,6 @@ namespace GeneticalSelection.Repositories.Impl
             phylum.KingdomId = kingdomId;
             Create(phylum); 
         }
+        public void DeletePhylum(Phylum phylum) => Delete(phylum);
     }
 }

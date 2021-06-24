@@ -1,4 +1,4 @@
-﻿@model IEnumerable<KingdomDto>
+﻿@model IEnumerable<Kingdom>
 
 <h3 class="p-2 bg-primary text-white text-center">Kingdoms</h3>
 <div class="container-fluid mt-3">
@@ -8,7 +8,8 @@
         <div class="col font-weight-bold">Description</div>
     </div>
     <form asp-action="CreateKingdom" method="post">
-        <div class="row">
+        <div class="row p-2">
+            <div class="col-1"></div>
             <div class="col"><input name="Name" class="form-control" /></div>
             <div class="col"><input name="LatinName" class="form-control" /></div>
             <div class="col"><input name="Description" class="form-control" /></div>
@@ -25,13 +26,20 @@
     }
     else 
     { 
-        @foreach(KingdomDto k in Model) 
+        @foreach(Kingdom k in Model) 
         { 
             <div class="row p-2">
                 <div class="col">@k.Name</div>
                 <div class="col">@k.LatinName</div>
                 <div class="col">@k.Description</div>
-                <div class="col"></div>
+                <div class="col">
+                    <form asp-action="DeleteKingdom" method="post">
+                        <a asp-action="UpdateKingdom" asp-route-kingdomId="@k.Id"
+                           class="btn btn-outline-primary">Edit</a>
+                        <input type="hidden" name="Id" value="@k.Id" />
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </div>
             </div>
         }
     }

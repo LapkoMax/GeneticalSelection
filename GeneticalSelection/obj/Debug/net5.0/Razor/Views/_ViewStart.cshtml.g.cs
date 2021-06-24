@@ -19,8 +19,15 @@ using GeneticalSelection.Models.DataTransferObjects;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\Views\_ViewImports.cshtml"
+using GeneticalSelection.Models.Entities;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5c05831fc344a09d2edcd9b7ea64465dcbd15998", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2b6534266893650737cb5dae38778a4fa9e88b39", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f611dd6b17fc3c8faef6b77ed70cda03772c5d99", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

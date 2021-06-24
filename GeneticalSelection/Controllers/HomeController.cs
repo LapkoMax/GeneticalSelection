@@ -26,8 +26,7 @@ namespace GeneticalSelection.Controllers
         public IActionResult Index()
         {
             var kingdoms = repository.Kingdom.GetAllKingdoms();
-            var kingdomsDto = mapper.Map<IEnumerable<KingdomDto>>(kingdoms);
-            return View(kingdomsDto);
+            return View(kingdoms);
         }
 
         [HttpPost]
@@ -35,6 +34,35 @@ namespace GeneticalSelection.Controllers
         {
             var kingdomEntity = mapper.Map<Kingdom>(kingdom);
             repository.Kingdom.CreateKingdom(kingdomEntity);
+            repository.Save();
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult UpdateKingdom(long kingdomId)
+        {
+            var kingdom = repository.Kingdom.GetKingdom(kingdomId);
+            var kingdomDto = mapper.Map<KingdomDto>(kingdom);
+            ViewData["kingdomId"] = kingdomId;
+            return View(kingdomDto);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateKingdom(long kingdomId, KingdomForUpdateDto kingdom)
+        {
+            var kingdomEntity = repository.Kingdom.GetKingdom(kingdomId, true);
+            if(kingdomEntity == null)
+            {
+                logger.LogInfo($"Kingdom with id: {kingdomId} doesn't exist in DB.");
+                return RedirectToAction(nameof(Index));
+            }
+            mapper.Map(kingdom, kingdomEntity);
+            repository.Save();
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public IActionResult DeleteKingdom(Kingdom kingdom)
+        {
+            repository.Kingdom.DeleteKingdom(kingdom);
             repository.Save();
             return RedirectToAction(nameof(Index));
         }

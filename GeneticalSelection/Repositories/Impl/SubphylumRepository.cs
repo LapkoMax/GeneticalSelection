@@ -39,5 +39,6 @@ namespace GeneticalSelection.Repositories.Impl
             subphylum.PhylumId = phylumId;
             Create(subphylum); 
         }
+        public void DeleteSubphylum(Subphylum subphylum) => Delete(subphylum);
     }
 }

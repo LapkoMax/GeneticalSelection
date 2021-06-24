@@ -31,5 +31,6 @@ namespace GeneticalSelection.Repositories.Impl
             family.OrderId = orderId;
             Create(family);
         }
+        public void DeleteFamily(Family family) => Delete(family);
     }
 }

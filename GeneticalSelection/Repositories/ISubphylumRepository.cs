@@ -11,5 +11,6 @@ namespace GeneticalSelection.Repositories
         IEnumerable<Subphylum> GetAllSubphylums(bool trackChanges = false);
         Subphylum GetSubphylum(long subphylumId, bool trackChanges = false);
         void CreateSubphylum(long phylumId, Subphylum subphylum);
+        void DeleteSubPhylum(Subphylum subphylum);
     }
 }

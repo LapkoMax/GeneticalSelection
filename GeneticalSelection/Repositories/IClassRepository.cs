@@ -11,5 +11,6 @@ namespace GeneticalSelection.Repositories
         IEnumerable<Class> GetAllClasses(bool trackChanges = false);
         Class GetClass(long classId, bool trackChanges = false);
         void CreateClass(long subphylumId, Class cl);
+        void DeleteClass(Class cl);
     }
 }

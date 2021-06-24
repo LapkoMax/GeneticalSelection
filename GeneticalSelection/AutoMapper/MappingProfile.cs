@@ -20,6 +20,7 @@ namespace GeneticalSelection.AutoMapper
             CreateMap<Family, FamilyDto>();
             CreateMap<Genus, GenusDto>();
             CreateMap<Species, SpeciesDto>();
+
             CreateMap<KingdomForCreationDto, Kingdom>();
             CreateMap<PhylumForCreationDto, Phylum>();
             CreateMap<SubphylumForCreationDto, Subphylum>();
@@ -28,6 +29,15 @@ namespace GeneticalSelection.AutoMapper
             CreateMap<FamilyForCreationDto, Family>();
             CreateMap<GenusForCreationDto, Genus>();
             CreateMap<SpeciesForCreationDto, Species>();
+
+            CreateMap<KingdomForUpdateDto, Kingdom>();
+            CreateMap<PhylumForUpdateDto, Phylum>();
+            CreateMap<SubphylumForUpdateDto, Subphylum>();
+            CreateMap<ClassForUpdateDto, Class>();
+            CreateMap<OrderForUpdateDto, Order>();
+            CreateMap<FamilyForUpdateDto, Family>();
+            CreateMap<GenusForUpdateDto, Genus>();
+            CreateMap<SpeciesForUpdateDto, Species>();
         }
     }
 }

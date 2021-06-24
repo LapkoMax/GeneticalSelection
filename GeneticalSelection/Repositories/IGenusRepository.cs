@@ -11,5 +11,6 @@ namespace GeneticalSelection.Repositories
         IEnumerable<Genus> GetAllGenuses(bool trackChanges = false);
         Genus GetGenus(long genusId, bool trackChanges = false);
         void CreateGenus(long familyId, Genus genus);
+        void DeleteGenus(Genus genus);
     }
 }

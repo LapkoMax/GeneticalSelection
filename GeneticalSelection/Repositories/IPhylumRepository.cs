@@ -11,5 +11,6 @@ namespace GeneticalSelection.Repositories
         IEnumerable<Phylum> GetAllPhylums(bool trackChanges = false);
         Phylum GetPhylum(long phylumId, bool trackChanges = false);
         void CreatePhylum(long kingdomId, Phylum phylum);
+        void DeletePhylum(Phylum phylum);
     }
 }

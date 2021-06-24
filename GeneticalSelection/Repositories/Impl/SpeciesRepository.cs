@@ -23,5 +23,6 @@ namespace GeneticalSelection.Repositories.Impl
             species.GenusId = genusId;
             Create(species); 
         }
+        public void DeleteSpecies(Species species) => Delete(species);
     }
 }

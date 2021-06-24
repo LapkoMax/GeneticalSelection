@@ -35,5 +35,6 @@ namespace GeneticalSelection.Repositories.Impl
             order.ClassId = classId;
             Create(order); 
         }
+        public void DeleteOrder(Order order) => Delete(order);
     }
 }

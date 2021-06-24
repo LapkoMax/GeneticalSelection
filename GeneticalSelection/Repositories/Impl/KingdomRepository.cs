@@ -35,5 +35,6 @@ namespace GeneticalSelection.Repositories.Impl
             FindByCondition(k => k.Id.Equals(kingdomId), trackChanges)
             .SingleOrDefault();
         public void CreateKingdom(Kingdom kingdom) => Create(kingdom);
+        public void DeleteKingdom(Kingdom kingdom) => Delete(kingdom);
     }
 }

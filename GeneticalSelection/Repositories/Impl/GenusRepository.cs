@@ -31,5 +31,6 @@ namespace GeneticalSelection.Repositories.Impl
             genus.FamilyId = familyId;
             Create(genus);
         }
+        public void DeleteGenus(Genus genus) => Delete(genus);
     }
 }
