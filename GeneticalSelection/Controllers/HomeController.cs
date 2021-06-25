@@ -28,17 +28,9 @@ namespace GeneticalSelection.Controllers
             var kingdoms = repository.Kingdom.GetAllKingdoms();
             return View(kingdoms);
         }
-
-        [HttpPost]
-        public IActionResult CreateKingdom(KingdomForCreationDto kingdom)
-        {
-            var kingdomEntity = mapper.Map<Kingdom>(kingdom);
-            repository.Kingdom.CreateKingdom(kingdomEntity);
-            repository.Save();
-            return RedirectToAction(nameof(Index));
-        }
         public IActionResult UpdateKingdom(long kingdomId)
         {
+            if (kingdomId == 0) return View(new KingdomDto());
             var kingdom = repository.Kingdom.GetKingdom(kingdomId);
             var kingdomDto = mapper.Map<KingdomDto>(kingdom);
             ViewData["kingdomId"] = kingdomId;
@@ -48,6 +40,13 @@ namespace GeneticalSelection.Controllers
         [HttpPost]
         public IActionResult UpdateKingdom(long kingdomId, KingdomForUpdateDto kingdom)
         {
+            if(kingdomId == 0)
+            {
+                var kingdomToAdd = mapper.Map<Kingdom>(kingdom);
+                repository.Kingdom.CreateKingdom(kingdomToAdd);
+                repository.Save();
+                return RedirectToAction(nameof(Index));
+            }
             var kingdomEntity = repository.Kingdom.GetKingdom(kingdomId, true);
             if(kingdomEntity == null)
             {

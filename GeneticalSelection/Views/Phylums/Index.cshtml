@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Phylum>
+
+<h3 class="p-2 bg-primary text-white text-center">Phylums</h3>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Latin Name</div>
+        <div class="col font-weight-bold">Description</div>
+        <div class="col font-weight-bold">Kingdom Id</div>
+        <div class="col-3"></div>
+    </div>
+    @if (ViewBag.PhylumId == null)
+    {
+        <form asp-action="CreatePhylum" method="post">
+            @Html.Partial("PhylumEditor", new Phylum())
+        </form>
+    }
+    @foreach (Phylum p in Model)
+    {
+        @if (p.Id == ViewBag.PhylumId)
+        {
+            <form asp-action="UpdatePhylum" asp-route-phylumId="@p.Id" method="post">
+                <input type="hidden" name="Id" value="@p.Id" />
+                @Html.Partial("PhylumEditor", p)
+            </form>
+        }
+        else
+        {
+            <div class="row p-2">
+                <div class="col">@p.Name</div>
+                <div class="col">@p.LatinName</div>
+                <div class="col">@p.Description</div>
+                <div class="col">@p.KingdomId</div>
+                <div class="col-3">
+                    <form asp-action="DeletePhylum" method="post">
+                        <input type="hidden" name="Id" value="@p.Id" />
+                        <a asp-action="EditPhylum" asp-route-phylumId="@p.Id"
+                        class="btn btn-outline-primary">Edit</a>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+</div>

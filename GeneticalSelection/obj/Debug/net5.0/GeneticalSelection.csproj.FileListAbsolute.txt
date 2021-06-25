@@ -74,3 +74,5 @@ E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Vie
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\Home\UpdateKingdom.cshtml.g.cs
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\Phylums\Index.cshtml.g.cs
+E:\Study\C#.NET\GeneticalSelection\GeneticalSelection\obj\Debug\net5.0\Razor\Views\Phylums\PhylumEditor.cshtml.g.cs
