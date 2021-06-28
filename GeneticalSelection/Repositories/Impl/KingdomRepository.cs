@@ -1,5 +1,6 @@
 ﻿using GeneticalSelection.Models;
 using GeneticalSelection.Models.Entities;
+using GeneticalSelection.Models.Pages;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -27,10 +28,9 @@ namespace GeneticalSelection.Repositories.Impl
                 RepositoryContext.Kingdoms.Where(expression).Include(k => k.Phylums).ThenInclude(p => p.Subphylums)
                 .ThenInclude(sp => sp.Classes).ThenInclude(c => c.Orders).ThenInclude(o => o.Families)
                 .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species);
-        public IEnumerable<Kingdom> GetAllKingdoms(bool trackChanges = false) =>
-            FindAll(trackChanges)
-            .OrderBy(k => k.Name)
-            .ToList();
+        public PagedList<Kingdom> GetAllKingdoms(QueryOptions options, bool trackChanges = false) =>
+            new PagedList<Kingdom>(FindAll(trackChanges)
+                .OrderBy(k => k.Name), options);
         public Kingdom GetKingdom(long kingdomId, bool trackChanges = false) =>
             FindByCondition(k => k.Id.Equals(kingdomId), trackChanges)
             .SingleOrDefault();

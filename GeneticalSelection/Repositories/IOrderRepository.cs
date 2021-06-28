@@ -1,4 +1,5 @@
 ﻿using GeneticalSelection.Models.Entities;
+using GeneticalSelection.Models.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace GeneticalSelection.Repositories
 {
     public interface IOrderRepository
     {
-        IEnumerable<Order> GetAllOrders(bool trackChanges = false);
+        PagedList<Order> GetAllOrders(QueryOptions options, bool trackChanges = false);
         Order GetOrder(long orderId, bool trackChanges = false);
         void CreateOrder(long classId, Order order);
         void DeleteOrder(Order order);

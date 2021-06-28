@@ -1,4 +1,5 @@
 ﻿using GeneticalSelection.Models.Entities;
+using GeneticalSelection.Models.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace GeneticalSelection.Repositories
 {
     public interface IClassRepository
     {
-        IEnumerable<Class> GetAllClasses(bool trackChanges = false);
+        PagedList<Class> GetAllClasses(QueryOptions options, bool trackChanges = false);
         Class GetClass(long classId, bool trackChanges = false);
         void CreateClass(long subphylumId, Class cl);
         void DeleteClass(Class cl);

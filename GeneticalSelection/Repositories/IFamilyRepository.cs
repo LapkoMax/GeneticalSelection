@@ -1,4 +1,5 @@
 ﻿using GeneticalSelection.Models.Entities;
+using GeneticalSelection.Models.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace GeneticalSelection.Repositories
 {
     public interface IFamilyRepository
     {
-        IEnumerable<Family> GetAllFamilies(bool trackChanges = false);
+        PagedList<Family> GetAllFamilies(QueryOptions options, bool trackChanges = false);
         Family GetFamily(long familyId, bool trackChanges = false);
         void CreateFamily(long orderId, Family family);
         void DeleteFamily(Family family);

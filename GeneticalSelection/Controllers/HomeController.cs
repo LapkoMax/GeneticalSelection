@@ -2,6 +2,7 @@
 using GeneticalSelection.LoggerService;
 using GeneticalSelection.Models.DataTransferObjects;
 using GeneticalSelection.Models.Entities;
+using GeneticalSelection.Models.Pages;
 using GeneticalSelection.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,9 +24,9 @@ namespace GeneticalSelection.Controllers
             logger = _logger;
             mapper = _mapper;
         }
-        public IActionResult Index()
+        public IActionResult Index(QueryOptions options)
         {
-            var kingdoms = repository.Kingdom.GetAllKingdoms();
+            var kingdoms = repository.Kingdom.GetAllKingdoms(options);
             return View(kingdoms);
         }
         public IActionResult UpdateKingdom(long kingdomId)

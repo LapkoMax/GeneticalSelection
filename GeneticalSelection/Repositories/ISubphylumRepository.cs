@@ -1,4 +1,5 @@
 ﻿using GeneticalSelection.Models.Entities;
+using GeneticalSelection.Models.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace GeneticalSelection.Repositories
 {
     public interface ISubphylumRepository
     {
-        IEnumerable<Subphylum> GetAllSubphylums(bool trackChanges = false);
+        PagedList<Subphylum> GetAllSubphylums(QueryOptions options, bool trackChanges = false);
         Subphylum GetSubphylum(long subphylumId, bool trackChanges = false);
         void CreateSubphylum(long phylumId, Subphylum subphylum);
         void DeleteSubphylum(Subphylum subphylum);

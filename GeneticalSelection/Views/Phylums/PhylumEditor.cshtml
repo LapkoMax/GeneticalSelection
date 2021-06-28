@@ -14,7 +14,12 @@
     @if (Model.Id == 0)
     {
         <div class="col">
-            <input asp-for="KingdomId" class="form-control" />
+            <select asp-for="KingdomId" class="form-control ml-1 mr-1">
+                @foreach (Kingdom k in ViewBag.Kingdoms)
+                {
+                    <option value="@k.Id" selected="@(Model.KingdomId == k.Id)">@k.Name</option>
+                }
+            </select>
         </div>
     }
     <div class="col-3">

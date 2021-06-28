@@ -1,5 +1,6 @@
 ﻿using GeneticalSelection.Models;
 using GeneticalSelection.Models.Entities;
+using GeneticalSelection.Models.Pages;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,21 +17,20 @@ namespace GeneticalSelection.Repositories.Impl
         public new IQueryable<Subphylum> FindAll(bool trackChanges = false) =>
             !trackChanges ? RepositoryContext.Subphylums.Include(sp => sp.Classes).
                 ThenInclude(c => c.Orders).ThenInclude(o => o.Families)
-                .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species).AsNoTracking() :
+                .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species).Include(sp => sp.Phylum).AsNoTracking() :
                 RepositoryContext.Subphylums.Include(sp => sp.Classes)
                 .ThenInclude(c => c.Orders).ThenInclude(o => o.Families)
-                .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species);
+                .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species).Include(sp => sp.Phylum);
         public new IQueryable<Subphylum> FindByCondition(Expression<Func<Subphylum, bool>> expression, bool trackChanges = false) =>
             !trackChanges ? RepositoryContext.Subphylums.Where(expression).Include(sp => sp.Classes).
                 ThenInclude(c => c.Orders).ThenInclude(o => o.Families)
-                .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species).AsNoTracking() :
+                .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species).Include(sp => sp.Phylum).AsNoTracking() :
                 RepositoryContext.Subphylums.Where(expression).Include(sp => sp.Classes).
                 ThenInclude(c => c.Orders).ThenInclude(o => o.Families)
-                .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species);
-        public IEnumerable<Subphylum> GetAllSubphylums(bool trackChanges = false) =>
-            FindAll(trackChanges)
-            .OrderBy(k => k.Name)
-            .ToList();
+                .ThenInclude(f => f.Genuses).ThenInclude(g => g.Species).Include(sp => sp.Phylum);
+        public PagedList<Subphylum> GetAllSubphylums(QueryOptions options, bool trackChanges = false) =>
+            new PagedList<Subphylum>(FindAll(trackChanges)
+                .OrderBy(k => k.Name), options);
         public Subphylum GetSubphylum(long subphylumId, bool trackChanges = false) =>
             FindByCondition(k => k.Id.Equals(subphylumId), trackChanges)
             .SingleOrDefault();

@@ -2,6 +2,7 @@
 using GeneticalSelection.LoggerService;
 using GeneticalSelection.Models.DataTransferObjects;
 using GeneticalSelection.Models.Entities;
+using GeneticalSelection.Models.Pages;
 using GeneticalSelection.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,9 +24,10 @@ namespace GeneticalSelection.Controllers
             logger = _logger;
             mapper = _mapper;
         }
-        public IActionResult Index()
+        public IActionResult Index(QueryOptions options)
         {
-            var phylums = repository.Phylum.GetAllPhylums();
+            var phylums = repository.Phylum.GetAllPhylums(options);
+            ViewBag.Kingdoms = repository.Kingdom.GetAllKingdoms(new QueryOptions { });
             return View(phylums);
         }
 
@@ -36,10 +38,10 @@ namespace GeneticalSelection.Controllers
             repository.Save();
             return RedirectToAction(nameof(Index));
         }
-        public IActionResult EditPhylum(long phylumId)
+        public IActionResult EditPhylum(QueryOptions options, long phylumId)
         {
             ViewBag.PhylumId = phylumId;
-            var phylums = repository.Phylum.GetAllPhylums();
+            var phylums = repository.Phylum.GetAllPhylums(options);
             return View("Index", phylums);
         }
 
