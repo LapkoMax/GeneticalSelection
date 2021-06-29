@@ -41,6 +41,7 @@ namespace GeneticalSelection.Controllers
         public IActionResult EditPhylum(QueryOptions options, long phylumId)
         {
             ViewBag.PhylumId = phylumId;
+            ViewBag.Kingdoms = repository.Kingdom.GetAllKingdoms(new QueryOptions { });
             var phylums = repository.Phylum.GetAllPhylums(options);
             return View("Index", phylums);
         }

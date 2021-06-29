@@ -10,5 +10,6 @@ namespace GeneticalSelection.Models.DataTransferObjects
         public string Name { get; set; }
         public string LatinName { get; set; }
         public string Description { get; set; }
+        public long OrderId { get; set; }
     }
 }

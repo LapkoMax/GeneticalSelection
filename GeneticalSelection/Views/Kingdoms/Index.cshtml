@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Kingdom>
+
+<h3 class="p-2 bg-primary text-white text-center">Kingdoms</h3>
+
+<div class="text-center">
+    @Html.Partial("Pages", Model)
+    @{
+        ViewBag.searches = new string[] { "Name", "LatinName" };
+        ViewBag.sorts = new string[] { "Name", "LatinName" };
+    }
+    @Html.Partial("PageOptions", Model)
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Latin Name</div>
+        <div class="col font-weight-bold">Description</div>
+        <div class="col"></div>
+    </div>
+    @if (ViewBag.KingdomId == null)
+    {
+        <form asp-action="CreateKingdom" method="post">
+            @Html.Partial("KingdomEditor", new Kingdom())
+        </form>
+    }
+
+    @foreach (Kingdom k in Model)
+    {
+        @if (k.Id == ViewBag.KingdomId)
+        {
+            <form asp-action="UpdateKingdom" asp-route-kingdomId="@k.Id" method="post">
+                <input type="hidden" name="Id" value="@k.Id" />
+                @Html.Partial("KingdomEditor", k)
+            </form>
+        }
+        else
+        {
+            <div class="row p-2">
+                <div class="col">@k.Name</div>
+                <div class="col">@k.LatinName</div>
+                <div class="col">@k.Description</div>
+                <div class="col">
+                    <form asp-action="DeleteKingdom" method="post">
+                        <a asp-action="EditKingdom" asp-route-kingdomId="@k.Id"
+                           class="btn btn-outline-primary">Edit</a>
+                        <input type="hidden" name="Id" value="@k.Id" />
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+</div>

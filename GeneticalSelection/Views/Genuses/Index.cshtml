@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Genus>
+
+<h3 class="p-2 bg-primary text-white text-center">Genuses</h3>
+
+<div class="text-center">
+    @Html.Partial("Pages", Model)
+    @{
+        ViewBag.searches = new string[] { "Name", "LatinName", "Family.Name" };
+        ViewBag.sorts = new string[] { "Name", "LatinName", "Family.Name" };
+    }
+    @Html.Partial("PageOptions", Model)
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Latin Name</div>
+        <div class="col font-weight-bold">Description</div>
+        <div class="col font-weight-bold">Family</div>
+        <div class="col-3"></div>
+    </div>
+    @if (ViewBag.GenusId == null)
+    {
+        <form asp-action="CreateGenus" method="post">
+            @Html.Partial("GenusEditor", new Genus())
+        </form>
+    }
+    @foreach (Genus g in Model)
+    {
+        @if (g.Id == ViewBag.GenusId)
+        {
+            <form asp-action="UpdateGenus" asp-route-genusId="@g.Id" method="post">
+                <input type="hidden" name="Id" value="@g.Id" />
+                @Html.Partial("GenusEditor", g)
+            </form>
+        }
+        else
+        {
+            <div class="row p-2">
+                <div class="col">@g.Name</div>
+                <div class="col">@g.LatinName</div>
+                <div class="col">@g.Description</div>
+                <div class="col">@g.Family.Name</div>
+                <div class="col-3">
+                    <form asp-action="DeleteGenus" method="post">
+                        <input type="hidden" name="Id" value="@g.Id" />
+                        <a asp-action="EditGenus" asp-route-genusId="@g.Id"
+                           class="btn btn-outline-primary">Edit</a>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+</div>

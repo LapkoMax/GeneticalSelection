@@ -1,0 +1,32 @@
+﻿<h3 class="p-2 bg-primary text-white text-center">Manage Data</h3>
+
+<div class="container-fluid">
+    <div class="row p-2">
+        <div class="col-2">
+            <a asp-controller="Kingdoms" asp-action="Index"
+               class="@GetClassForButton("Kingdoms")">Kingdoms</a>
+            <a asp-controller="Phylums" asp-action="Index"
+               class="@GetClassForButton("Phylums")">Phylums</a>
+            <a asp-controller="Subphylums" asp-action="Index"
+               class="@GetClassForButton("Subphylums")">Subphylums</a>
+            <a asp-controller="Classes" asp-action="Index"
+               class="@GetClassForButton("Classes")">Classes</a>
+            <a asp-controller="Orders" asp-action="Index"
+               class="@GetClassForButton("Orders")">Orders</a>
+            <a asp-controller="Families" asp-action="Index"
+               class="@GetClassForButton("Families")">Families</a>
+            <a asp-controller="Genuses" asp-action="Index"
+               class="@GetClassForButton("Genuses")">Genuses</a>
+            <a asp-controller="Species" asp-action="Index"
+               class="@GetClassForButton("Species")">Species</a>
+        </div>
+    </div>
+</div>
+
+@functions {
+    string GetClassForButton(string controller)
+    {
+        return "btn btn-block " + (ViewContext.RouteData.Values["controller"]
+            as string == controller ? "btn-primary" : "btn-outline-primary");
+    }
+}

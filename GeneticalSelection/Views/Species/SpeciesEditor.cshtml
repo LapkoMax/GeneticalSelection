@@ -1,0 +1,32 @@
+﻿@model Species
+
+<div class="row p-2">
+    <div class="col">
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="col">
+        <input asp-for="LatinName" class="form-control" />
+    </div>
+    <div class="col">
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="col">
+        <select asp-for="GenusId" class="form-control ml-1 mr-1">
+            @foreach (Genus g in ViewBag.Genuses)
+            {
+                <option value="@g.Id" selected="@(Model.GenusId == g.Id)">@g.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        @if (Model.Id == 0)
+        {
+            <button type="submit" class="btn btn-primary">Add</button>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-outline-primary">Save</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+        }
+    </div>
+</div>
